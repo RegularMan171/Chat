@@ -1,14 +1,13 @@
 import java.net.Socket;
 import java.io.*;
-//import java.net.*;
-//import java.util.*;
+
 
 public class UserThread extends Thread {
-	
+
 	private Socket socket;
 	private ChatServer chatServer;
 	private PrintWriter writer;
-	
+
 
 	public UserThread(Socket socket, ChatServer chatServer) {
 		// TODO Auto-generated constructor stub
@@ -20,7 +19,7 @@ public class UserThread extends Thread {
 		try {
 			InputStream input = socket.getInputStream();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-			
+
 			OutputStream output = socket.getOutputStream();
 			writer = new PrintWriter(output, true);
 			printUsers();
@@ -53,7 +52,7 @@ public class UserThread extends Thread {
 			writer.println("No other connected users.");
 		}
 	}
-	
+
 	public void sendMessage(String message) {
 		// TODO Auto-generated method stub
 		writer.println(message);

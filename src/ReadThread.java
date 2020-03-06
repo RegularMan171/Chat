@@ -7,7 +7,7 @@ public class ReadThread extends Thread{
 	private BufferedReader reader;
 	private Socket socket;
 	private ChatClient chatClient;
-	
+
 	public ReadThread(Socket socket, ChatClient chatClient) {
 		this.socket = socket;
 		this.chatClient = chatClient;
@@ -19,13 +19,13 @@ public class ReadThread extends Thread{
 			ex.printStackTrace();
 		}
 	}
-	
+
 	public void run() {
 		while(true) {
 			try {
 				String response = reader.readLine();
 				System.out.println(response);
-				
+
 				/*
 				 * if(chatClient.getUsername()!= null) {
 				 * System.out.println(chatClient.getUsername()+ " said: "); }
